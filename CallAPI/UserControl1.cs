@@ -24,7 +24,7 @@ namespace UserControl2
         public string textBox1_Text
         {
             get { return textBox1.Text; }
-            private set { }
+            set { textBox1.Text = value; }
         }
         //Constructor
         public UserControl1()
@@ -231,7 +231,7 @@ namespace UserControl2
             path.CloseFigure();
             return path;
         }
-        
+
 
         protected override void OnResize(EventArgs e)
         {
@@ -264,7 +264,7 @@ namespace UserControl2
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             //if (_TextChanged != null)
-                _TextChanged.Invoke(sender, e);
+            _TextChanged.Invoke(sender, e);
         }
 
         private void textBox1_Click(object sender, EventArgs e)

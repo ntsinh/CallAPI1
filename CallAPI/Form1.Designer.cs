@@ -34,16 +34,16 @@
             tenKhoXuat = new DataGridViewTextBoxColumn();
             moTa = new DataGridViewTextBoxColumn();
             label1 = new Label();
-            txtMaKho = new TextBox();
             label2 = new Label();
-            txtTenKho = new TextBox();
             label3 = new Label();
-            txtMoTa = new TextBox();
             lbMaKhoLog = new Label();
             lbTenKhoLog = new Label();
             btnThem = new GUI.CustomButton();
             btnSua = new GUI.CustomButton();
             btnXoa = new GUI.CustomButton();
+            txtMaKho = new UserControl2.UserControl1();
+            txtTenKho = new UserControl2.UserControl1();
+            txtMoTa = new UserControl2.UserControl1();
             ((System.ComponentModel.ISupportInitialize)dgvKho).BeginInit();
             SuspendLayout();
             // 
@@ -69,7 +69,7 @@
             maKhoXuat.HeaderText = "Mã Kho Xuất";
             maKhoXuat.Name = "maKhoXuat";
             maKhoXuat.ReadOnly = true;
-            maKhoXuat.Width = 110;
+            maKhoXuat.Width = 120;
             // 
             // tenKhoXuat
             // 
@@ -77,7 +77,7 @@
             tenKhoXuat.HeaderText = "Tên Kho Xuất";
             tenKhoXuat.Name = "tenKhoXuat";
             tenKhoXuat.ReadOnly = true;
-            tenKhoXuat.Width = 120;
+            tenKhoXuat.Width = 150;
             // 
             // moTa
             // 
@@ -85,7 +85,7 @@
             moTa.HeaderText = "Mô Tả";
             moTa.Name = "moTa";
             moTa.ReadOnly = true;
-            moTa.Width = 130;
+            moTa.Width = 150;
             // 
             // label1
             // 
@@ -98,52 +98,27 @@
             label1.TabIndex = 1;
             label1.Text = "Mã Kho Xuất";
             // 
-            // txtMaKho
-            // 
-            txtMaKho.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtMaKho.Location = new Point(14, 33);
-            txtMaKho.Name = "txtMaKho";
-            txtMaKho.Size = new Size(205, 27);
-            txtMaKho.TabIndex = 2;
-            // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = SystemColors.GrayText;
-            label2.Location = new Point(14, 93);
+            label2.Location = new Point(14, 81);
             label2.Name = "label2";
             label2.Size = new Size(125, 25);
             label2.TabIndex = 1;
             label2.Text = "Tên Kho Xuất";
-            // 
-            // txtTenKho
-            // 
-            txtTenKho.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtTenKho.Location = new Point(15, 121);
-            txtTenKho.Name = "txtTenKho";
-            txtTenKho.Size = new Size(205, 27);
-            txtTenKho.TabIndex = 2;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = SystemColors.GrayText;
-            label3.Location = new Point(14, 180);
+            label3.Location = new Point(14, 160);
             label3.Name = "label3";
             label3.Size = new Size(66, 25);
             label3.TabIndex = 1;
             label3.Text = "Mô Tả";
-            // 
-            // txtMoTa
-            // 
-            txtMoTa.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtMoTa.Location = new Point(14, 208);
-            txtMoTa.Multiline = true;
-            txtMoTa.Name = "txtMoTa";
-            txtMoTa.Size = new Size(205, 68);
-            txtMoTa.TabIndex = 2;
             // 
             // lbMaKhoLog
             // 
@@ -236,27 +211,90 @@
             btnXoa.UseVisualStyleBackColor = false;
             btnXoa.Click += btnXoa_Click_1;
             // 
+            // txtMaKho
+            // 
+            txtMaKho.BackColor = SystemColors.Window;
+            txtMaKho.BorderColor = SystemColors.ButtonShadow;
+            txtMaKho.BorderFocusColor = SystemColors.ControlDark;
+            txtMaKho.BorderRadius = 5;
+            txtMaKho.BorderSize = 1;
+            txtMaKho.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            txtMaKho.ForeColor = Color.DimGray;
+            txtMaKho.Location = new Point(12, 36);
+            txtMaKho.Margin = new Padding(4);
+            txtMaKho.Multiline = false;
+            txtMaKho.Name = "txtMaKho";
+            txtMaKho.Padding = new Padding(7);
+            txtMaKho.PasswordChar = false;
+            txtMaKho.Size = new Size(207, 31);
+            txtMaKho.TabIndex = 8;
+            txtMaKho.Texts = "";
+            txtMaKho.UnderlinedStyle = false;
+            txtMaKho._TextChanged += txtMaKho__TextChanged;
+            // 
+            // txtTenKho
+            // 
+            txtTenKho.BackColor = SystemColors.Window;
+            txtTenKho.BorderColor = SystemColors.ButtonShadow;
+            txtTenKho.BorderFocusColor = SystemColors.ControlDark;
+            txtTenKho.BorderRadius = 5;
+            txtTenKho.BorderSize = 1;
+            txtTenKho.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTenKho.ForeColor = Color.DimGray;
+            txtTenKho.Location = new Point(12, 113);
+            txtTenKho.Margin = new Padding(4);
+            txtTenKho.Multiline = false;
+            txtTenKho.Name = "txtTenKho";
+            txtTenKho.Padding = new Padding(7);
+            txtTenKho.PasswordChar = false;
+            txtTenKho.Size = new Size(207, 31);
+            txtTenKho.TabIndex = 8;
+            txtTenKho.Texts = "";
+            txtTenKho.UnderlinedStyle = false;
+            txtTenKho._TextChanged += txtTenKho__TextChanged;
+            // 
+            // txtMoTa
+            // 
+            txtMoTa.BackColor = SystemColors.Window;
+            txtMoTa.BorderColor = SystemColors.ButtonShadow;
+            txtMoTa.BorderFocusColor = SystemColors.ControlDark;
+            txtMoTa.BorderRadius = 5;
+            txtMoTa.BorderSize = 1;
+            txtMoTa.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            txtMoTa.ForeColor = Color.DimGray;
+            txtMoTa.Location = new Point(14, 191);
+            txtMoTa.Margin = new Padding(4);
+            txtMoTa.Multiline = true;
+            txtMoTa.Name = "txtMoTa";
+            txtMoTa.Padding = new Padding(7);
+            txtMoTa.PasswordChar = false;
+            txtMoTa.Size = new Size(207, 91);
+            txtMoTa.TabIndex = 8;
+            txtMoTa.Texts = "";
+            txtMoTa.UnderlinedStyle = false;
+            txtMoTa._TextChanged += txtMoTa__TextChanged;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(706, 440);
+            Controls.Add(txtMoTa);
+            Controls.Add(txtTenKho);
+            Controls.Add(txtMaKho);
             Controls.Add(btnXoa);
             Controls.Add(btnSua);
             Controls.Add(btnThem);
             Controls.Add(lbTenKhoLog);
             Controls.Add(lbMaKhoLog);
-            Controls.Add(txtMoTa);
             Controls.Add(label3);
-            Controls.Add(txtTenKho);
             Controls.Add(label2);
-            Controls.Add(txtMaKho);
             Controls.Add(label1);
             Controls.Add(dgvKho);
             Name = "Form1";
             Text = "Form1";
-            FormClosed += Form1_FormClosed;
+            FormClosing += Form1_FormClosing;
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dgvKho).EndInit();
             ResumeLayout(false);
@@ -267,18 +305,18 @@
 
         private DataGridView dgvKho;
         private Label label1;
-        private TextBox txtMaKho;
         private Label label2;
-        private TextBox txtTenKho;
         private Label label3;
-        private TextBox txtMoTa;
-        private DataGridViewTextBoxColumn maKhoXuat;
-        private DataGridViewTextBoxColumn tenKhoXuat;
-        private DataGridViewTextBoxColumn moTa;
         private Label lbMaKhoLog;
         private Label lbTenKhoLog;
         private GUI.CustomButton btnThem;
         private GUI.CustomButton btnSua;
         private GUI.CustomButton btnXoa;
+        private DataGridViewTextBoxColumn maKhoXuat;
+        private DataGridViewTextBoxColumn tenKhoXuat;
+        private DataGridViewTextBoxColumn moTa;
+        private UserControl2.UserControl1 txtMaKho;
+        private UserControl2.UserControl1 txtTenKho;
+        private UserControl2.UserControl1 txtMoTa;
     }
 }
