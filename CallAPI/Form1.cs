@@ -132,19 +132,25 @@ namespace CallAPI
              resetDataGrid();
              dgvKho.DataSource = listKho;
              Clear(); */
-            for (int i = 0; i < listKho.Count; i++)
+            DialogResult dr = MessageBox.Show("Bạn có chắc muốn xóa Id này ?", "Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
             {
-                DataGridViewRow row = dgvKho.Rows[i];
-                string maKho = row.Cells[0].Value.ToString();
-                if (maKho.Equals(txtMaKho.Text))
+                for (int i = 0; i < listKho.Count; i++)
                 {
-                    listKho.RemoveAt(i);
-                    resetDataGrid();
-                    dgvKho.DataSource = listKho;
-                    Clear();
-                }
+                    DataGridViewRow row = dgvKho.Rows[i];
+                    string maKho = row.Cells[0].Value.ToString();
+                    if (maKho.Equals(txtMaKho.Text))
+                    {
+                        listKho.RemoveAt(i);
+                        resetDataGrid();
+                        dgvKho.DataSource = listKho;
+                        Clear();
+                    }
 
+                }
             }
+            else { return; }
+            
         }
 
         
