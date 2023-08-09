@@ -32,21 +32,22 @@ namespace UserControl2
                     userControl11.BorderColor = Color.Orange;
                 }
             }
-            else {
+            else
+            {
                 userControl11.BorderColor = Color.Red;
                 label1.Text = "UserName Phải từ 5 kí tự";
             }
-            
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
-        
+
         private void userControl12__TextChanged(object sender, EventArgs e)
         {
-            
+
             if (userControl12.textBox1_Text.Length >= 8 && userControl12.textBox1_Text.Length <= 20)
             {
                 label4.Text = "";
@@ -72,7 +73,7 @@ namespace UserControl2
         {
             if (userControl11.textBox1_Text.Equals("admin") && userControl12.textBox1_Text.Equals("12345678"))
             {
-              //MessageBox.Show("Đăng nhập thành công");
+                //MessageBox.Show("Đăng nhập thành công");
                 Form1 form1 = new Form1();
                 form1.Show();
                 this.Hide();
@@ -80,7 +81,7 @@ namespace UserControl2
             else
             {
                 MessageBox.Show("Sai UserName hoặc Password");
-            } 
+            }
         }
     }
 }
