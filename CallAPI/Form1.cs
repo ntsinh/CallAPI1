@@ -6,8 +6,10 @@ using System.Runtime.Serialization.Json;
 
 namespace CallAPI
 {
+
     public partial class Form1 : Form
     {
+
         List<KhoHang>? listKho;
         public Form1()
         {
@@ -47,7 +49,27 @@ namespace CallAPI
             else { txtMoTa.Text = ""; }
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
+
+        public void resetDataGrid()
+        {
+            dgvKho.DataSource = null;
+        }
+
+
+        public void Clear()
+        {
+            txtMaKho.Text = "";
+            txtTenKho.Text = "";
+            txtMoTa.Text = "";
+
+        }
+
+        private void dgvKho_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnThem_Click_1(object sender, EventArgs e)
         {
             int j = 0;
             if (txtMaKho.Text != "")
@@ -80,12 +102,8 @@ namespace CallAPI
             }
             else { MessageBox.Show("Chua nhap ma kho xuat"); }
         }
-        public void resetDataGrid()
-        {
-            dgvKho.DataSource = null;
-        }
 
-        private void btnSua_Click(object sender, EventArgs e)
+        private void btnSua_Click_1(object sender, EventArgs e)
         {
             for (int i = 0; i < listKho.Count; i++)
             {
@@ -107,34 +125,43 @@ namespace CallAPI
             newDataRow.Cells[2].Value = txtMoTa.Text;
             Clear(); */
         }
-        public void Clear()
+
+        private void btnXoa_Click_1(object sender, EventArgs e)
         {
-            txtMaKho.Text = "";
-            txtTenKho.Text = "";
-            txtMoTa.Text = "";
+            /* listKho.RemoveAt(indexRow);
+             resetDataGrid();
+             dgvKho.DataSource = listKho;
+             Clear(); */
+            DialogResult dr = MessageBox.Show("Bạn có chắc muốn xóa Id này ?", "Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                for (int i = 0; i < listKho.Count; i++)
+                {
+                    DataGridViewRow row = dgvKho.Rows[i];
+                    string maKho = row.Cells[0].Value.ToString();
+                    if (maKho.Equals(txtMaKho.Text))
+                    {
+                        listKho.RemoveAt(i);
+                        resetDataGrid();
+                        dgvKho.DataSource = listKho;
+                        Clear();
+                    }
+
+                }
+            }
+            else { return; }
             
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
+        
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-           /* listKho.RemoveAt(indexRow);
-            resetDataGrid();
-            dgvKho.DataSource = listKho;
-            Clear(); */
-            for (int i = 0; i<listKho.Count;i++)
+            DialogResult dr = MessageBox.Show("Bạn có chắc muốn thoát không ?", "Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
             {
-                DataGridViewRow row = dgvKho.Rows[i];
-                string maKho = row.Cells[0].Value.ToString();
-                if (maKho.Equals(txtMaKho.Text))
-                {
-                    listKho.RemoveAt(i);
-                    resetDataGrid();
-                    dgvKho.DataSource = listKho;
-                    Clear();
-                }
-                
+                Application.Exit();
             }
-            
         }
     }
 }
