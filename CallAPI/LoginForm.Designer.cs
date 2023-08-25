@@ -40,9 +40,11 @@
             customButton1 = new CustomButton();
             userControl12 = new UserControl1();
             userControl11 = new UserControl1();
+            pbEye = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbEye).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -141,8 +143,8 @@
             // 
             // customButton1
             // 
-            customButton1.BackColor = Color.Orange;
-            customButton1.BackgroundColor = Color.Orange;
+            customButton1.BackColor = Color.DarkOrange;
+            customButton1.BackgroundColor = Color.DarkOrange;
             customButton1.BorderColor = Color.PaleVioletRed;
             customButton1.BorderRadius = 5;
             customButton1.BorderSize = 0;
@@ -177,6 +179,7 @@
             userControl12.PasswordChar = true;
             userControl12.Size = new Size(260, 33);
             userControl12.TabIndex = 5;
+            userControl12.textBox1_Text = "";
             userControl12.Texts = "";
             userControl12.UnderlinedStyle = true;
             userControl12._TextChanged += userControl12__TextChanged;
@@ -198,9 +201,22 @@
             userControl11.PasswordChar = false;
             userControl11.Size = new Size(260, 33);
             userControl11.TabIndex = 0;
+            userControl11.textBox1_Text = "";
             userControl11.Texts = "";
             userControl11.UnderlinedStyle = true;
             userControl11._TextChanged += userControl11__TextChanged;
+            // 
+            // pbEye
+            // 
+            pbEye.Image = GUI.Properties.Resources.close_eye;
+            pbEye.Location = new Point(601, 225);
+            pbEye.Name = "pbEye";
+            pbEye.Size = new Size(24, 24);
+            pbEye.TabIndex = 7;
+            pbEye.TabStop = false;
+            pbEye.Click += pbEye_Click;
+            pbEye.MouseEnter += pbEye_MouseEnter;
+            pbEye.MouseLeave += pbEye_MouseLeave;
             // 
             // LoginForm
             // 
@@ -208,6 +224,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(674, 428);
+            Controls.Add(pbEye);
             Controls.Add(customButton1);
             Controls.Add(userControl12);
             Controls.Add(label5);
@@ -223,6 +240,7 @@
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbEye).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -240,6 +258,7 @@
         private Label label5;
         private UserControl1 userControl12;
         private CustomButton customButton1;
+        private PictureBox pbEye;
     }
 }
 
