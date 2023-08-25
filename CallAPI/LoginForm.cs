@@ -116,7 +116,7 @@ namespace UserControl2
                 EyeOpen = false;
                 pbEye.Image = GUI.Properties.Resources.close_eye;
                 userControl12.PasswordChar = true;
-                System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"C:\Users\ntsinh\Downloads\tomScream.wav");
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer(GUI.Properties.Resources.tomScream);
                 player.Play();
             }
         }
