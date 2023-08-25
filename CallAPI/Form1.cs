@@ -37,7 +37,7 @@ namespace CallAPI
 
         private void dgvKho_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
             if (e.RowIndex == -1) return;
             DataGridViewRow row = dgvKho.Rows[e.RowIndex];
             string maKho = row.Cells[0].Value.ToString();
@@ -88,7 +88,7 @@ namespace CallAPI
                         break;
                     }
                 }
-                if (check ==false)
+                if (check == false)
                 {
                     KhoHang kh = new KhoHang();
                     kh.maKhoXuat = txtMaKho.textBox1_Text;
@@ -121,10 +121,10 @@ namespace CallAPI
                     newDataRow.Cells[2].Value = txtMoTa.textBox1_Text;
                     Clear();
                 }
-                
+
 
             }
-            if(check ==false) { MessageBox.Show("Mã kho không tồn tại"); }
+            if (check == false) { MessageBox.Show("Mã kho không tồn tại"); }
             /* indexRow = dgvKho.CurrentCell.RowIndex;
             DataGridViewRow newDataRow = dgvKho.Rows[indexRow];
             newDataRow.Cells[0].Value = txtMaKho.Text;
@@ -139,7 +139,7 @@ namespace CallAPI
              resetDataGrid();
              dgvKho.DataSource = listKho;
              Clear(); */
-            int j=0;
+            int j = 0;
             Boolean check = false;
             for (int i = 0; i < listKho.Count; i++)
             {
@@ -150,35 +150,35 @@ namespace CallAPI
                     check = true;
                     j = i;
                 }
-                    
+
 
             }
             if (check == false) { MessageBox.Show("Mã kho không tồn tại"); }
             else
             {
-            DialogResult dr = MessageBox.Show("Bạn có chắc muốn xóa Id " + txtMaKho.textBox1_Text + " ?", "Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.Yes)
-            {
-                listKho.RemoveAt(j);
-                resetDataGrid();
-                dgvKho.DataSource = listKho;
-                Clear();
+                DialogResult dr = MessageBox.Show("Bạn có chắc muốn xóa Id " + txtMaKho.textBox1_Text + " ?", "Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
+                {
+                    listKho.RemoveAt(j);
+                    resetDataGrid();
+                    dgvKho.DataSource = listKho;
+                    Clear();
+                }
+                else { return; }
             }
-            else { return; }
-            }
-           
+
 
         }
 
-        private void Form1_FormClosing(object sender, CancelEventArgs e)
-        {
-            DialogResult dr = MessageBox.Show("Bạn có chắc muốn thoát không ?", "Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
-            else { Environment.Exit(0); }
-        }
+        //private void Form1_FormClosing(object sender, CancelEventArgs e)
+        //{
+        //    DialogResult dr = MessageBox.Show("Bạn có chắc muốn thoát không ?", "Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        //    if (dr == DialogResult.No)
+        //    {
+        //        e.Cancel = true;
+        //    }
+        //    else { Environment.Exit(0); }
+        //}
 
         private void txtMaKho__TextChanged(object sender, EventArgs e)
         {

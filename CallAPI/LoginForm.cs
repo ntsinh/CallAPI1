@@ -1,4 +1,5 @@
 ﻿using CallAPI;
+using GUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -67,6 +68,13 @@ namespace UserControl2
                 userControl12.BorderColor = Color.Red;
                 label4.Text = "Password phải từ 8 - 20 kí tự";
             }
+            if (eyeHurt>3)
+            {
+                if (userControl12.textBox1_Text.Equals("sorry"))
+                {
+                    eyeHurt = 0;
+                }
+            }
         }
 
         private void customButton1_Click(object sender, EventArgs e)
@@ -74,8 +82,11 @@ namespace UserControl2
             if (userControl11.textBox1_Text.Equals("admin") && userControl12.textBox1_Text.Equals("12345678"))
             {
                 //MessageBox.Show("Đăng nhập thành công");
-                Form1 form1 = new Form1();
-                form1.Show();
+                //Form1 form1 = new Form1();
+                //form1.Show();
+                //this.Hide();
+                Form2 form2 = new Form2();
+                form2.Show();
                 this.Hide();
             }
             else
@@ -83,5 +94,45 @@ namespace UserControl2
                 MessageBox.Show("Sai UserName hoặc Password");
             }
         }
+
+        private void pbEye_Click(object sender, EventArgs e)
+        {
+            eyeOpen();
+        }
+        Boolean EyeOpen = false;
+        int eyeHurt = 0;
+        private void eyeOpen()
+        {
+            if (EyeOpen == false)
+            {
+                EyeOpen = true;
+                pbEye.Image = GUI.Properties.Resources.open_eye;
+                userControl12.PasswordChar = false;
+                eyeHurt += 1;
+
+            }
+            else
+            {
+                EyeOpen = false;
+                pbEye.Image = GUI.Properties.Resources.close_eye;
+                userControl12.PasswordChar = true;
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"C:\Users\ntsinh\Downloads\tomScream.wav");
+                player.Play();
+            }
+        }
+
+        private void pbEye_MouseEnter(object sender, EventArgs e)
+        {
+            if (eyeHurt > 3)
+            {
+                pbEye.Location = new Point(550, 225);
+            }
+        }
+
+        private void pbEye_MouseLeave(object sender, EventArgs e)
+        {
+            pbEye.Location = new Point(601, 225);
+        }
+
     }
 }
